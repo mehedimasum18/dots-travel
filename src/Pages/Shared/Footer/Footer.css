@@ -1,0 +1,14 @@
+.footer{
+    background: #a5a5a5;
+    margin-top: 5em;
+    padding-top: 2em;
+    padding-bottom: 1em;
+    text-align: start;
+}
+.footer_logo{
+    font-weight: bolder;
+    font-size: 3em;
+    color: #e63d00;
+    padding: .3em;
+}
+

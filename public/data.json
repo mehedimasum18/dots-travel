@@ -1,0 +1,47 @@
+[
+    {
+         "id": 1,
+        "name": "Travel Maldive",
+        "price": "$800",
+        "description": "The best time to visit the Maldives is between November and April.",
+        "img": "https://i.ibb.co/VVvR1SK/maldive.jpg"
+    }, 
+    {
+         "id": 2,
+        "name": "Travel Kashmir",
+        "price": "$700",
+        "description": "The winter season, December through February, is the best time to visit Kashmir for snowfall.",
+        "img": "https://i.ibb.co/6wNx8mg/kasmir.jpg"
+    }, 
+    {
+         "id": 3,
+        "name": "Travel Egypt",
+        "price": "$1200",
+        "description": "The best times to visit Cairo are from March to April and from October to November.",
+        "img": "https://i.ibb.co/x1SQYQj/eygpt.jpg"
+    }, 
+    {
+         "id": 4,
+        "name": "Travel Bali",
+        "price": "$1000",
+        "description": "Bali’s central mountains (volcanoes) include several peaks, with mount Agung reaching over 3,000 meters in elevation. ",
+        "img": "https://i.ibb.co/wsLS9Z2/bali.jpg"
+    }, 
+    {
+         "id": 5,
+        "name": "Travel Sundarban",
+        "price": "$200",
+        "description": "The unique and amazing Sundarbans National Park is known for being the largest Mangrove forest ",
+        "img": "https://i.ibb.co/MnLsm9n/sandarban.jpg"
+    },
+    {
+         "id": 6,
+        "name": "Travel Maldive",
+        "price": "$800",
+        "description": "The best time to visit the Maldives is between November and April.",
+        "img": "https://i.ibb.co/F5wy3sg/tyrkey.jpg"
+    }
+]
+
+
+
