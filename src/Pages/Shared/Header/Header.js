@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 import useFirebase from '../../../hooks/useFirebase';
 
 const Header = () => {
-  const { user, logOut } = useFirebase();
-  // console.log(user);
+  const { currentUser, logOut } = useFirebase();
+  console.log(currentUser);
     return (
       <>
         <Navbar
@@ -32,7 +32,7 @@ const Header = () => {
               <Nav.Link as={Link} to="/myOrder">
                 My Order
               </Nav.Link>
-              {user?.email ? (
+              {currentUser?.email ? (
                 <Button onClick={logOut} variant="light">
                   Logout
                 </Button>
@@ -44,9 +44,9 @@ const Header = () => {
              
               <Navbar.Text style={{paddingLeft:"1em"}}>
                 <div className="align-items-center justify-content-center d-flex">
-                  <h6 className to="/login"> {user?.displayName} </h6>
+                  <h6 className to="/login"> {currentUser?.displayName} </h6>
                  <img style={{ width: "50px" }}  className="rounded-circle mx-3"
-                    src={user.photoURL} alt=""/>
+                    src={currentUser?.photoURL} alt=""/>
                 </div>
               </Navbar.Text>
             </Navbar.Collapse>

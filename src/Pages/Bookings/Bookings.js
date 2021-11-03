@@ -6,28 +6,25 @@ import useAuth from '../../hooks/useAuth';
 
 const Bookings = () => {
     
-    const  {id } = useParams();
-    const  user  = useAuth();
-    const [serviceDetails, setServiceDetails] = useState();
-    const [item, setItem] = useState();
+    const { id } = useParams();
+    const [serviceDetails, setServiceDetails] = useState([]);
+    const [findService, setFindService] = useState();
+    const { currentUser } = useAuth();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
-    const { register, handleSubmit, formState: { errors } } = useForm();
-    console.log(user);
     useEffect(() => {
-         fetch("https://evil-fangs-79869.herokuapp.com/users")
-           .then((res) => res.json())
-           .then((data) => setServiceDetails(data));
-    },[])
-       
-   useEffect(() => {
-     if (serviceDetails > 0) {
-       const matchDetails = serviceDetails.find((service) => service._id == id);
-       setItem(matchDetails);
-     }
-   }, [serviceDetails]);
-    
-    
-    
+      fetch("https://evil-fangs-79869.herokuapp.com/users/_id")
+        .then((res) => res.json())
+        .then((data) => setServiceDetails(data));
+    }, []);
+
+    useEffect(() => {
+      if (serviceDetails.length > 0) {
+        const matchDetails = serviceDetails.find((service) => service._id == id);
+        console.log(matchDetails);
+      }
+    }, [serviceDetails]);
+
     
   const onSubmit = (data) => console.log(data);
 
@@ -37,9 +34,11 @@ const Bookings = () => {
       <Container className="my-4 pb-4">
         <Row className="d-flex align-items-center">
           <div className="col-md-5">
-                <div className="mt-3">
-                          
-                </div>
+            <div className="mt-3">
+              <img src={findService?.img} className="w-100 img" alt="" />
+              <h2 className="py-3">{findService?.name}</h2>
+              <p>{findService?.body}</p>
+            </div>
           </div>
           <div className="col-md-7">
             <div className="bg-dark my-2 p-4 w-75 rounded mx-auto">
@@ -49,7 +48,7 @@ const Bookings = () => {
                   <div className="col-md-6">
                     <input
                       {...register("name")}
-                    //   value={user.displayName}
+                      value={currentUser?.displayName}
                       placeholder="Name"
                       className="p-2 m-2 w-100 rounded border-1"
                     />
@@ -57,7 +56,7 @@ const Bookings = () => {
                   <div className="col-md-6">
                     <input
                       {...register("email")}
-                    //   value={user.email}
+                      value={currentUser?.email}
                       placeholder="Email"
                       className="p-2 m-2 w-100 rounded border-1"
                     />
@@ -74,7 +73,7 @@ const Bookings = () => {
                   <div className="col-md-6">
                     <input
                       {...register("package")}
-                    //   value={item?.title}
+                      value={findService?.title}
                       placeholder="Package"
                       className="p-2 m-2 w-100 rounded border-1"
                     />
@@ -91,7 +90,7 @@ const Bookings = () => {
                   <div className="col-md-6">
                     <input
                       {...register("type")}
-                    //   value={item?.type}
+                      value={findService?.type}
                       placeholder="Type"
                       className="p-2 m-2 w-100 rounded border-1"
                     />

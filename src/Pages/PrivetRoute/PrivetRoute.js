@@ -4,9 +4,11 @@ import { Redirect, Route } from 'react-router';
 import useAuth from '../../hooks/useAuth';
 
 
+
+
 const PrivetRoute = ({children, ...rest}) => {
     
-  const { user, loading } = useAuth();
+  const { currentUser, loading } = useAuth();
   if (loading) {
     return (
       <div className="d-flex align-items-center justify-content-center spinner">
@@ -18,7 +20,7 @@ const PrivetRoute = ({children, ...rest}) => {
       <Route
         {...rest}
         render={({ location }) =>
-          user.email ? (
+          currentUser?.email ? (
             children
           ) : (
             <Redirect

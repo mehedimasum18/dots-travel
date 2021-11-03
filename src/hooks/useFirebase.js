@@ -7,7 +7,7 @@ import initializeAuthentication from '../Pages/Login/Firebase/firebase.init';
 initializeAuthentication();
 
 const useFirebase = () => {  
-    const [user, setUser] = useState({});
+    const [currentUser, setUser] = useState({});
     const [error, setError] = useState();
     const [loading, setLoading] = useState();
     
@@ -39,7 +39,7 @@ const useFirebase = () => {
         .finally(()=> {})
     }
   return {
-      user,
+     currentUser,
       error,
     loading,
       setError,
