@@ -1,11 +1,10 @@
-import React from 'react';
-import { Button, Col, Container, Row, Table } from 'react-bootstrap';
 
-const ManageAllOrders = () => {
-  
-    
+import React from 'react';
+import { Col,Button, Container, Row, Table } from 'react-bootstrap';
+
+const Order = () => {
     return (
-      <div id="manageOrder">
+      <div id="myOrder" style={{padding:"1em", }}>
         <Container fluid="md">
           <Row>
             <Col>
@@ -35,14 +34,7 @@ const ManageAllOrders = () => {
                       <Button variant="danger">Delete</Button>
                     </td>
                   </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    <td>@fat</td>
-                    <td>@fat</td>
-                  </tr>
+                 
                 </tbody>
               </Table>
             </Col>
@@ -52,4 +44,4 @@ const ManageAllOrders = () => {
     );
 };
 
-export default ManageAllOrders;
+export default Order;

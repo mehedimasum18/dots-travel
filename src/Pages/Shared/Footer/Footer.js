@@ -19,10 +19,10 @@ const Footer = () => {
               </div>
             </Col>
             <Col xs={6} md={4}>
-                <h2>Visit Our Office</h2>
-                        <h6>32, South Mugda, Dhaka, Bangladesh.</h6>
-                        <h6>Mobile: 015000000</h6>
-                    <h6>Email: dotsdevbd@gmail.com </h6>    
+              <h2>Visit Our Office</h2>
+              <h6>32, South Mugda, Dhaka, Bangladesh.</h6>
+              <h6>Mobile: 015000000</h6>
+              <h6>Email: dotsdevbd@gmail.com </h6>
             </Col>
           </Row>
         </Container>

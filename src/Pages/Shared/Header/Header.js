@@ -1,53 +1,54 @@
 import React from 'react';
 import { Container, Button, Nav, Navbar } from 'react-bootstrap';
 import { Link } from "react-router-dom";
-
-import { HashLink } from "react-router-hash-link";
-import useAuth from '../../../hooks/useAuth';
+import useFirebase from '../../../hooks/useFirebase';
 
 const Header = () => {
-    // const { user, logOut } = useAuth();
+  const { user, logOut } = useFirebase();
+  // console.log(user);
     return (
       <>
         <Navbar
           style={{ color: "#eb2f06" }}
-          bg="light"
-          variant="dark"
-          sticky="top"
-          collapseOnSelect
-          expand="lg"
-        >
+          bg="dark" variant="dark" sticky="top" collapseOnSelect expand="lg">
           <Container style={{ fontWeight: "bolder" }}>
             <Navbar.Brand
-              style={{fontWeight: "bolder", fontSize: "1.5em", color: "#cd6133", }}
-              href="#home" > Dot's Travel
+              style={{
+                fontWeight: "bolder",  fontSize: "1.5em", color: "#cd6133", }} href="#home" >
+           
+              Dot's Travel
             </Navbar.Brand>
             <Navbar.Toggle />
             <Navbar.Collapse className="justify-content-end">
-              <Nav.Link as={HashLink} to="/home#home">
+              <Nav.Link as={Link} to="/">
                 Home
               </Nav.Link>
-              <Nav.Link as={HashLink} to="/home#services">
+              <Nav.Link as={Link} to="/services">
                 Services
               </Nav.Link>
-              <Nav.Link as={HashLink} to="/home#experts">
+              <Nav.Link as={Link} to="/manageOrder">
                 Manage All Order
               </Nav.Link>
-              <Nav.Link as={HashLink} to="/home#experts">
+              <Nav.Link as={Link} to="/myOrder">
                 My Order
               </Nav.Link>
-              {/* {user?.email ? (
+              {user?.email ? (
                 <Button onClick={logOut} variant="light">
                   Logout
                 </Button>
-              ) : (
-                <Nav.Link as={Link} to="/login">
+              ) : (    
+                    <Nav.Link as={Link} to="/login">
                   Login
-                </Nav.Link>
+                  </Nav.Link>
               )}
-              <Navbar.Text>
-                Signed in as: <a href="#login">{user?.displayName}</a>
-              </Navbar.Text> */}
+             
+              <Navbar.Text style={{paddingLeft:"1em"}}>
+                <div className="align-items-center justify-content-center d-flex">
+                  <h6 className to="/login"> {user?.displayName} </h6>
+                 <img style={{ width: "50px" }}  className="rounded-circle mx-3"
+                    src={user.photoURL} alt=""/>
+                </div>
+              </Navbar.Text>
             </Navbar.Collapse>
           </Container>
         </Navbar>

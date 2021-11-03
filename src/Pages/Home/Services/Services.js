@@ -5,11 +5,11 @@ const Services = () => {
     const [services, setServices] = useState([]);
     
     useEffect(() => {
-        fetch("http://localhost:5000/users")
-          .then((res) => res.json())
-          .then((data) => setServices(data));
+        fetch("https://evil-fangs-79869.herokuapp.com/users")
+            .then((res) => res.json())
+            .then((data) => setServices(data));
         
-    }, [])
+    }, []);
     
     return (
         

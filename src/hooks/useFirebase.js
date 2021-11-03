@@ -1,50 +1,50 @@
-import React, { useEffect, useState } from 'react';
-import initializeAuthentication from '../Pages/Login/Firebase/firebase.init';
+import  { useEffect, useState } from 'react';
 import {
   getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut, } from "firebase/auth";
+import initializeAuthentication from '../Pages/Login/Firebase/firebase.init';
+
 
 initializeAuthentication();
 
 const useFirebase = () => {  
     const [user, setUser] = useState({});
-    const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState();
+    const [loading, setLoading] = useState();
     
     const auth = getAuth();
-    
-    const signInUsingGoogle = () => {
-        setIsLoading(true);
-        const googleProvider = new GoogleAuthProvider();
-        
-           signInWithPopup(auth, googleProvider)
-               .then((result) => {
-                setUser(result.user)
-               })
-               .finally(() => setIsLoading(false))
+    const googleProvider = new GoogleAuthProvider();
+
+          
+   useEffect(() => {
+     const unsubscribe = onAuthStateChanged(auth, user => {
+       if (user) {
+         setUser(user);
+       } else {
+         setUser({});
+       }
+       setLoading(false);
+     });
+     return () => unsubscribe();
+   }, []);
+    const signInUsingGoogle = () => {  
+        return signInWithPopup(auth, googleProvider);
+
     }
-       
-    useEffect(() => {
-        const unsubscribed = onAuthStateChanged(auth, user => {
-            if (user) {
-                setUser(user);
-            }
-            else {
-                setUser({})
-            }
-            setIsLoading(false);
-        });
-        
-        return () => unsubscribed;
-    }, []);
-    
+
     const logOut = () => {
-        setIsLoading(true)
-       return signOut(auth)
-            .then(() => { })
-        .finally(()=> setIsLoading(false))
+        
+        return signOut(auth).then(() => {
+           setUser({})
+       })
+        .finally(()=> {})
     }
   return {
       user,
-      isLoading,
+      error,
+    loading,
+      setError,
+      setUser,
+      setLoading,
     signInUsingGoogle,
     logOut
   } 

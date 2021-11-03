@@ -1,5 +1,3 @@
-
-
 const firebaseConfig = {
   apiKey: "AIzaSyAcFN8rqFbmblDR8n_nsxrTZqWNBqHauA4",
   authDomain: "dot-s-travel.firebaseapp.com",
