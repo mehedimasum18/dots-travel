@@ -1,4 +1,4 @@
-# Getting Started with Dots Travel React App
+# Getting Started with Dots Travel
 
 Our live site Link: https://dots-travel-live.web.app/
 
